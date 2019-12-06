@@ -77,12 +77,6 @@ ro.crypto.volume.options=::v2
 
 # Dalvik
 dalvik.vm.dex2oat64.enabled=true
-dalvik.vm.heapstartsize=32m
-dalvik.vm.heapgrowthlimit=512m
-dalvik.vm.heapsize=768m
-dalvik.vm.heaptargetutilization=0.5
-dalvik.vm.heapminfree=8m
-dalvik.vm.heapmaxfree=64m
 
 # Display
 debug.sf.use_phase_offsets_as_durations=1
