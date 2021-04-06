@@ -137,6 +137,9 @@ on boot
 on property:sys.boot_completed=1
     setprop vendor.setup.power 1
 
+    # Disable native stats collection service
+    stop statsd
+
     # Runtime fs tuning
     write /sys/block/sda/queue/nr_requests 128
     write /sys/block/sda/queue/iostats 1
