@@ -10,6 +10,11 @@
 ### jiangyg@PM                     2013-10-21                Create this file
 ##################################################################################
 
+on init
+    # Charger
+    write /proc/fastchg_fw_update 1
+    write /proc/ui_soc_decimal 1
+
 on fs
     # Update touchpanel firmware in case we ship newer firmware in /odm
     write /proc/touchpanel/tp_fw_update 0
