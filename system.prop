@@ -53,6 +53,10 @@ persist.front.skipdisplay.enable=1
 ro.vendor.display.sensortype=2
 ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg
 
+# HWUI
+debug.hwui.use_hint_manager=true
+debug.hwui.target_cpu_time_percent=30
+
 # IOP
 vendor.iop.enable_prefetch_ofr=1
 vendor.iop.enable_uxe=1
