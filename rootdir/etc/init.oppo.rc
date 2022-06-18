@@ -10,6 +10,10 @@
 ### jiangyg@PM                     2013-10-21                Create this file
 ##################################################################################
 
+on fs
+    # Update touchpanel firmware in case we ship newer firmware in /odm
+    write /proc/touchpanel/tp_fw_update 0
+
 on early-boot
     # SSR
     write /sys/bus/msm_subsys/devices/subsys0/restart_level RELATED
