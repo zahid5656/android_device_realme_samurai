@@ -154,6 +154,8 @@ class BiometricsFingerprint : public IBiometricsFingerprint,
     std::shared_ptr<IUdfpsHelper> mOplusUdfpsHelper;
     sp<V2_1::IBiometricsFingerprintClientCallback> mClientCallback;
 
+    bool isEnrolling;
+
     typedef enum fingerprint_callback_cmd_Id {
         FINGERPRINT_CALLBACK_CMD_ID_NONE = 0,
         FINGERPRINT_CALLBACK_CMD_ID_BASE = 1200,
