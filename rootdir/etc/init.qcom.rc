@@ -246,18 +246,6 @@ on post-fs-data
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
-
-    # Enable PowerHAL hint processing
-    setprop vendor.powerhal.init 1
-
-    # Enable UFS clock scaling back
-    write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 1
-    # Reset read ahead back to 512kb
-    write /sys/block/sda/queue/read_ahead_kb 512
-    write /sys/block/sdf/queue/read_ahead_kb 512
-    write /sys/block/dm-0/queue/read_ahead_kb 512
-    write /sys/block/dm-1/queue/read_ahead_kb 512
-    write /sys/block/dm-2/queue/read_ahead_kb 512
     #WDSP FW boot sysfs node used by STHAL
     chown media audio /sys/kernel/wdsp0/boot
     #Reinit lmkd to reconfigure lmkd properties
@@ -355,7 +343,6 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/m
 
 on charger
     setprop persist.sys.usb.config mass_storage
-    start qcom-post-boot
 
 on property:vendor.display.lcd_density=*
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
