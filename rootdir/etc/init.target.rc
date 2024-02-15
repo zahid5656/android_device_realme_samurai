@@ -66,17 +66,11 @@ on late-fs
     # mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.qcom --late
 
-on post-fs-data
-    mkdir /data/vendor/nnhal 0700 system system
-    mkdir /data/vendor/dolby 0770 media media
-
 on early-boot
     start vendor.sensors
 
 on boot
     chown system system /sys/kernel/qvr_external_sensor/fd
-    start rmt_storage
-    start rfs_access
     write /dev/cpuset/foreground/cpus 0-3,5-6
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-3
