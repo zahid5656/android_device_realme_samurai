@@ -16,6 +16,7 @@ set_prop(vendor_init, qcom_ims_prop)
 set_prop(vendor_init, vendor_camera_prop)
 set_prop(vendor_init, vendor_dataqdp_prop)
 set_prop(vendor_init, vendor_perf_prop)
+set_prop(vendor_init, vendor_sensors_als_prop)
 
 allow vendor_init block_device:blk_file setattr;
 allow vendor_init block_device:lnk_file setattr;

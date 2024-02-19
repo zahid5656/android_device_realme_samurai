@@ -1,5 +1,5 @@
-binder_call(hal_syshelper_default, hal_sensors_default)
-hal_client_domain(hal_sensors_default, hal_syshelper)
+binder_use(hal_sensors_default)
+hal_client_domain(hal_sensors_default, hal_lineage_oplus_als)
 
 dontaudit hal_sensors_default property_type:file { getattr open read map };
 
