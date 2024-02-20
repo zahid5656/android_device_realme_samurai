@@ -11,6 +11,9 @@ genfscon proc /fp_id                                                       u:obj
 # Flash
 genfscon proc /qcom_flash                                                  u:object_r:cam_proc:s0
 
+# Graphics
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-    u:object_r:vendor_sysfs_sde_crtc:s0
+
 # Oppo Display
 genfscon sysfs /kernel/oppo_display                                        u:object_r:sysfs_oppo_display:s0
 
