@@ -436,10 +436,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.samurai
 
-# Trust
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
