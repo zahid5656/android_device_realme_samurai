@@ -50,4 +50,7 @@
             1 - LOCAL HBM
     -->
     <integer name="config_udfpsHbmType">0</integer>
+
+    <!-- Whether long press is required to activate keyguard quick affordance buttons -->
+    <bool name="config_keyguardQuickAffordanceRequiresLongPress">false</bool>
 </resources>
