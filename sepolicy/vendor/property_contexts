@@ -12,7 +12,6 @@ sys.oppo.mm.record.type             u:object_r:vendor_audio_prop:s0
 sys.oppo.mm.voice.record            u:object_r:vendor_audio_prop:s0
 
 # Bluetooth
-persist.vendor.bt.a2dp_offload_cap  u:object_r:vendor_bluetooth_prop:s0
 persist.vendor.service.bt.iot.enablelogging u:object_r:vendor_bluetooth_prop:s0
 vendor.bluetooth.soc                u:object_r:vendor_bluetooth_prop:s0
 
