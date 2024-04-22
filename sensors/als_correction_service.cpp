@@ -74,7 +74,6 @@ class AlsCorrection {
         captureArgs.sourceCrop = (state.orientation == Rotation::Rotation0 || state.orientation == Rotation::Rotation180) ? screenshot_rect : screenshot_rect_land;
         captureArgs.width = screenshot_rect.getWidth();
         captureArgs.height = screenshot_rect.getHeight();
-        captureArgs.useIdentityTransform = true;
         captureArgs.captureSecureLayers = true;
 
         if (ScreenshotClient::captureDisplay(captureArgs, captureListener) == NO_ERROR) {
