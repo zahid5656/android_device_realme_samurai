@@ -99,6 +99,8 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     audio.r_submix.default \
     audio.usb.default \
+    libaudioroute.vendor \
+    libprocessgroup.vendor:32 \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
@@ -148,6 +150,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64 \
     libcamera2ndk_vendor \
     libcamera_metadata_shim \
+    libutilscallstack.vendor:64 \
     vendor.qti.hardware.camera.device@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
@@ -376,6 +379,13 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qmi_fw.conf:$(TARGET_COPY_OUT_VENDOR)/etc/qmi_fw.conf
 
+# QMI
+PRODUCT_PACKAGES += \
+    libcurl.vendor:64 \
+    libjson \
+    libjsoncpp.vendor \
+    libsqlite.vendor:64
+
 # QNS
 PRODUCT_PACKAGES += \
     libstdc++_vendor
@@ -395,7 +405,6 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.3.vendor \
     android.hardware.radio.deprecated@1.0.vendor \
     android.hardware.secure_element@1.2.vendor \
-    libjson \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat \
     librmnetctl \
@@ -412,6 +421,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.sensors@2.1-service.multihal \
+    libdumpstateutil.vendor:64 \
     libsensorndkbridge \
     sensors.oplus \
     vendor.lineage.oplus_als.service \
