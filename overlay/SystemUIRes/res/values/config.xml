@@ -42,6 +42,9 @@
          far break points. A sensor value less than this is considered "near". -->
     <item name="proximity_sensor_threshold" format="float" type="dimen">1</item>
 
+    <!-- Preferred refresh rate at keyguard, if supported by the display -->
+    <integer name="config_keyguardRefreshRate">60</integer>
+
     <!-- Color of the FOD view -->
     <color name="config_udfpsColor">#00ffffff</color>
 
