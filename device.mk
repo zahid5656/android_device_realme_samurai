@@ -354,9 +354,16 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
-    libstagefrighthw \
+    libopus.vendor \
+    libstagefright_amrnb_common.vendor \
+    libstagefright_enc_common.vendor \
+    libstagefright_foundation \
     libstagefright_omx \
-    libstagefright_foundation
+    libstagefright_softomx_plugin.vendor \
+    libstagefright_softomx.vendor \
+    libstagefrighthw \
+    libvorbisidec.vendor \
+    libvpx.vendor
 
 # Parts
 $(call inherit-product, packages/apps/RealmeParts/parts.mk)
