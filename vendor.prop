@@ -214,6 +214,7 @@ vendor.usb.use_gadget_hal=0
 
 # Wi-Fi
 wifi.aware.interface=wifi-aware0
+wifi.supplicant_scan_interval=120
 
 # Verity
 ro.apk_verity.mode=2
