@@ -5,13 +5,13 @@
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
       "Values": [
         "1785600",
-        "1113600",
-        "844800",
-        "300000",
-        "1036800",
-        "1209600",
+        "1555200",
         "1382400",
-        "1555200"
+        "1209600",
+        "1113600",
+        "1036800",
+        "844800",
+        "300000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -21,11 +21,11 @@
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
       "Values": [
         "1785600",
+        "1113600",
         "576000",
-        "300000",
-        "1113600"
+        "300000"
       ],
-      "DefaultIndex": 2,
+      "DefaultIndex": 3,
       "ResetOnInit": true
     },
     {
@@ -51,13 +51,13 @@
       "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq",
       "Values": [
         "2419200",
+        "2131200",
         "2016000",
-        "1401600",
-        "1171200",
-        "1497600",
-        "1708800",
         "1920000",
-        "2131200"
+        "1708800",
+        "1497600",
+        "1401600",
+        "1171200"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -69,10 +69,10 @@
         "2419200",
         "1497600",
         "1401600",
-        "0",
-        "1286400"
+        "1286400",
+        "0"
       ],
-      "DefaultIndex": 3,
+      "DefaultIndex": 4,
       "ResetOnInit": true
     },
     {
@@ -98,12 +98,12 @@
       "Path": "/sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq",
       "Values": [
         "2841600",
-        "2016000",
-        "1401600",
-        "1708800",
-        "2015999",
+        "2534400",
         "2227200",
-        "2534400"
+        "2016000",
+        "2015999",
+        "1708800",
+        "1401600"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -115,10 +115,10 @@
         "2841600",
         "1497600",
         "1401600",
-        "0",
-        "1286400"
+        "1286400",
+        "0"
       ],
-      "DefaultIndex": 3,
+      "DefaultIndex": 4,
       "ResetOnInit": true
     },
     {
