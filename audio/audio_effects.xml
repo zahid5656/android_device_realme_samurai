@@ -42,15 +42,6 @@
         <library name="audiosphere" path="libasphere.so"/>
         <library name="shoebox" path="libshoebox.so"/>
         <library name="haptic_effect" path="libhaptic_effect.so"/>
-        <!-- #ifdef VENDOR_EDIT-->
-        <!-- YunMang.Xiao@PSW.MM.Dolby, 2019/06/18, add for dolby -->
-        <!--DOLBY DAP-->
-        <library name="dap" path="libswdap_v351.so"/>
-        <!--DOLBY END-->
-         <!--DOLBY VQE-->
-        <library name="vqe" path="libswvqe_v351.so"/>
-        <!--DOLBY END-->
-        <!-- #endif VENDOR_EDIT-->
     </libraries>
     <effects>
         <effectProxy name="bassboost" library="proxy" uuid="14804144-a5ee-4d24-aa88-0002a5d5c51b">
@@ -100,20 +91,8 @@
         <effect name="audiosphere" library="audiosphere" uuid="184e62ab-2d19-4364-9d1b-c0a40733866c"/>
         <effect name="shoebox" library="shoebox" uuid="1eab784c-1a36-4b2a-b7fc-e34c44cab89e"/>
         <effect name="haptic" library="haptic_effect" uuid="17852d51-161e-11e2-892e-0800200c9a66" />
-        <!-- #ifdef VENDOR_EDIT-->
-        <!--YunMang.Xiao@PSW.MM.Dolby, 2019/06/18, add for dolby -->
-        <!--DOLBY DAP-->
-        <effect name="dap" library="dap" uuid="9d4921da-8225-4f29-aefa-39537a04bcaa"/>
-        <!--DOLBY END-->
-        <!--DOLBY VQE-->
-        <effect name="vqe" library="vqe" uuid="64a0f614-7fa4-48b8-b081-d59dc954616f"/>
-        <!--DOLBY END-->
-        <!-- #endif VENDOR_EDIT-->
     </effects>
     <postprocess>
-    <!-- #ifndef VENDOR_EDIT-->
-        <!-- YunMang.Xiao@PSW.MM.Dolby, 2019/06/18, add for dolby -->
-    <!--
         <stream type="music">
             <apply effect="music_helper"/>
         </stream>
@@ -122,18 +101,13 @@
         </stream>
         <stream type="alarm">
             <apply effect="alarm_helper"/>
-        </stream> -->
-     <!-- #endif VENDOR_EDIT-->
+        </stream>
         <stream type="voice_call">
             <apply effect="voice_helper"/>
         </stream>
-    <!-- #ifndef VENDOR_EDIT-->
-        <!-- YunMang.Xiao@PSW.MM.Dolby, 2019/06/18, add for dolby -->
-     <!--
-            <stream type="notification">
+        <stream type="notification">
             <apply effect="notification_helper"/>
-        </stream> -->
-     <!-- #endif VENDOR_EDIT-->
+        </stream>
     </postprocess>
     <preprocess>
         <stream type="voice_communication">
