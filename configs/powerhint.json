@@ -203,7 +203,8 @@
       "Path": "/dev/stune/top-app/schedtune.boost",
       "Values": [
         "30",
-        "10"
+        "10",
+        "1"
       ],
       "ResetOnInit": true
     },
@@ -437,6 +438,11 @@
       "Node": "GPUMaxFreq",
       "Duration": 0,
       "Value": "427000000"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Type": "EndHint",
+      "Value": "DISABLE_TA_BOOST"
     },
     {
       "PowerHint": "INTERACTION",
@@ -1117,8 +1123,30 @@
       "Value": "1"
     },
     {
+      "PowerHint": "DISABLE_TA_BOOST",
+      "Node": "TASchedtuneBoost",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Type": "DoHint",
+      "Value": "DISABLE_TA_BOOST"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Type": "EndHint",
+      "Value": "INTERACTION"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 0,
+      "Value": "576000"
+    },
+    {
       "PowerHint": "DISPLAY_INACTIVE",
-      "Node": "CPULittleClusterMaxFreq",
+      "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
       "Value": "300000"
     }
