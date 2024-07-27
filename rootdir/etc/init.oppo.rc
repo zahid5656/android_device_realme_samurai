@@ -14,8 +14,6 @@ on boot
     mkdir /data/opponvitems  0771 radio radio
     write /proc/sys/fs/suid_dumpable 1
     setprop persist.vendor.radio.force_on_dc true
-    chmod 0660 /dev/mdmreason
-    chown system system /dev/mdmreason
 
     # awinic haptic
     chown system audio /dev/aw8697_haptic
@@ -180,13 +178,6 @@ service vendor.sensors-hal-2-1-multihal /vendor/bin/hw/android.hardware.sensors@
     writepid /dev/cpuset/system-background/tasks
     capabilities BLOCK_SUSPEND
     rlimit rtprio 10 10
-
-service vendor.adsprpcd /vendor/bin/adsprpcd
-    override
-    class main
-    user system
-    group media
-    disabled
 
 on post-fs-data
     mkdir /data/system/audio 0775 media media

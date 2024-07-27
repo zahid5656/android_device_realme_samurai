@@ -164,6 +164,11 @@ debug.sf.predict_hwc_composition_strategy=0
 # Keystore
 ro.hardware.keystore_desede=true
 
+# LOG
+persist.log.tag.adsprpcd=S
+persist.log.tag.sscrpcd=S
+persist.log.tag.vppservice=S
+
 # Media
 debug.media.codec2=2
 debug.stagefright.c2inputsurface=-1
