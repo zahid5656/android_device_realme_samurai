@@ -6,7 +6,6 @@
 
 #include "AreaCapture.h"
 
-#include <android-base/properties.h>
 #include <gui/SurfaceComposerClient.h>
 #include <gui/SyncScreenCaptureListener.h>
 #include <ui/DisplayState.h>
@@ -20,7 +19,6 @@ using android::ScreenshotClient;
 using android::sp;
 using android::SurfaceComposerClient;
 using android::SyncScreenCaptureListener;
-using android::base::GetProperty;
 using android::gui::ScreenCaptureResults;
 using android::ui::PixelFormat;
 
@@ -30,12 +28,14 @@ namespace lineage {
 namespace oplus_als {
 
 AreaCapture::AreaCapture() {
-    int left, top, right, bottom;
-    std::istringstream is(GetProperty("vendor.sensors.als_correction.grabrect", ""));
+    // Hardcoded values for the rectangle
+    int left = 677;
+    int top = 19;
+    int right = 707;
+    int bottom = 49;
 
-    is >> left >> top >> right >> bottom;
-    if (left == 0) {
-        LOG_ALWAYS_FATAL("No screenshot grab area config");
+    if (left < 0 || top < 0 || right <= left || bottom <= top) {
+        LOG_ALWAYS_FATAL("Invalid screenshot grab area configuration");
         return;
     }
 

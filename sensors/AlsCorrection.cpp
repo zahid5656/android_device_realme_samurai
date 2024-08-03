@@ -94,33 +94,23 @@ static T get(const std::string& path, const T& def) {
 }
 
 void AlsCorrection::init() {
-    std::istringstream is;
-
-    conf.hbr = GetBoolProperty("vendor.sensors.als_correction.hbr", false);
-    conf.bias = GetIntProperty("vendor.sensors.als_correction.bias", 0);
-    is = std::istringstream(GetProperty("vendor.sensors.als_correction.rgbw_max_lux_div", ""));
-    is >> conf.rgbw_max_lux_div[0] >> conf.rgbw_max_lux_div[1]
-        >> conf.rgbw_max_lux_div[2] >> conf.rgbw_max_lux_div[3];
-    is = std::istringstream(GetProperty("vendor.sensors.als_correction.rgbw_poly1", ""));
-    is >> conf.rgbw_poly[0][0] >> conf.rgbw_poly[0][1]
-        >> conf.rgbw_poly[0][2] >> conf.rgbw_poly[0][3];
-    is = std::istringstream(GetProperty("vendor.sensors.als_correction.rgbw_poly2", ""));
-    is >> conf.rgbw_poly[1][0] >> conf.rgbw_poly[1][1]
-        >> conf.rgbw_poly[1][2] >> conf.rgbw_poly[1][3];
-    is = std::istringstream(GetProperty("vendor.sensors.als_correction.rgbw_poly3", ""));
-    is >> conf.rgbw_poly[2][0] >> conf.rgbw_poly[2][1]
-        >> conf.rgbw_poly[2][2] >> conf.rgbw_poly[2][3];
-    is = std::istringstream(GetProperty("vendor.sensors.als_correction.rgbw_poly4", ""));
-    is >> conf.rgbw_poly[3][0] >> conf.rgbw_poly[3][1]
-        >> conf.rgbw_poly[3][2] >> conf.rgbw_poly[3][3];
-    is = std::istringstream(GetProperty("vendor.sensors.als_correction.grayscale_weights", ""));
-    is >> conf.grayscale_weights[0] >> conf.grayscale_weights[1] >> conf.grayscale_weights[2];
-    is = std::istringstream(GetProperty("vendor.sensors.als_correction.sensor_gaincal_points", ""));
-    is >> conf.sensor_gaincal_points[0] >> conf.sensor_gaincal_points[1]
-        >> conf.sensor_gaincal_points[2] >> conf.sensor_gaincal_points[3];
-    is = std::istringstream(GetProperty("vendor.sensors.als_correction.sensor_inverse_gain", ""));
-    is >> conf.sensor_inverse_gain[0] >> conf.sensor_inverse_gain[1]
-        >> conf.sensor_inverse_gain[2] >> conf.sensor_inverse_gain[3];
+    conf.hbr = false;
+    conf.bias = 0;
+    conf.rgbw_max_lux[0] = 646.0;
+    conf.rgbw_max_lux[1] = 622.0;
+    conf.rgbw_max_lux[2] = 367.0;
+    conf.rgbw_max_lux[3] = 1352.0;
+    conf.rgbw_max_lux_div[0] = 351.0;
+    conf.rgbw_max_lux_div[1] = 428.0;
+    conf.rgbw_max_lux_div[2] = 312.0;
+    conf.rgbw_max_lux_div[3] = 105.0;
+    conf.rgbw_poly[0][0] = 0.000009523; conf.rgbw_poly[0][1] = 0.00243; conf.rgbw_poly[0][2] = 0.14892; conf.rgbw_poly[0][3] = 0.0;
+    conf.rgbw_poly[1][0] = 0.000013910; conf.rgbw_poly[1][1] = 0.00248; conf.rgbw_poly[1][2] = 0.15241; conf.rgbw_poly[1][3] = 0.0;
+    conf.rgbw_poly[2][0] = 0.000007932; conf.rgbw_poly[2][1] = 0.00254; conf.rgbw_poly[2][2] = 0.28193; conf.rgbw_poly[2][3] = 0.0;
+    conf.rgbw_poly[3][0] = 0.000016796; conf.rgbw_poly[3][1] = -0.00409; conf.rgbw_poly[3][2] = 0.38922; conf.rgbw_poly[3][3] = 0.0;
+    conf.grayscale_weights[0] = 0.32; conf.grayscale_weights[1] = 0.39; conf.grayscale_weights[2] = 0.29;
+    conf.sensor_gaincal_points[0] = 85.0; conf.sensor_gaincal_points[1] = 39.0; conf.sensor_gaincal_points[2] = 29.0; conf.sensor_gaincal_points[3] = 0.0;
+    conf.sensor_inverse_gain[0] = 0.540; conf.sensor_inverse_gain[1] = 0.245; conf.sensor_inverse_gain[2] = 0.145; conf.sensor_inverse_gain[3] = 0.092;
 
     float rgbw_acc = 0.0;
     for (int i = 0; i < 4; i++) {
