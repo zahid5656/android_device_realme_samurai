@@ -24,8 +24,10 @@ vendor.bluetooth.soc=cherokee
 ro.camera.hfr.enable=1
 ro.camera.relight.enable=0
 ro.camera.attr.detect.enable=1
-ro.camera.notify_nfc=1
 ro.camera.temperature.limit=470
+ro.oplus.system.camera.flashlight=com.oppo.motor.flashlight
+ro.oplus.camera.video_beauty.prefix=oppo.video.beauty.
+ro.oplus.camera.video.beauty.switch=oppo.switch.video.beauty
 persist.vendor.camera.light_ae.enable=1
 
 # Charger

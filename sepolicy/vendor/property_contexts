@@ -16,6 +16,7 @@ persist.vendor.service.bt.iot.enablelogging u:object_r:vendor_bluetooth_prop:s0
 vendor.bluetooth.soc                u:object_r:vendor_bluetooth_prop:s0
 
 # Camera
+oplus.camera.                       u:object_r:vendor_camera_prop:s0
 oppo.camera.                        u:object_r:vendor_camera_prop:s0
 oppo.switch.video.beauty            u:object_r:vendor_camera_prop:s0
 persist.bps.debug                   u:object_r:vendor_camera_prop:s0
