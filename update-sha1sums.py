@@ -17,63 +17,60 @@
 #
 
 from hashlib import sha1
+import os
 import sys
 
-device='samurai'
-vendor='realme'
+device = 'samurai'
+vendor = 'realme'
 
-lines = [ line for line in open('proprietary-files.txt', 'r') ]
-vendorPath = '../../../vendor/' + vendor + '/' + device + '/proprietary'
+lines = [line for line in open('proprietary-files.txt', 'r')]
+vendorPath = f'../../../vendor/{vendor}/{device}/proprietary'
 needSHA1 = False
 
 def cleanup():
-  for index, line in enumerate(lines):
-    # Remove '\n' character
-    line = line[:-1]
-
-    # Skip empty or commented lines
-    if len(line) == 0 or line[0] == '#':
-      continue
-
-    # Drop SHA1 hash, if existing
-    if '|' in line:
-      line = line.split('|')[0]
-      lines[index] = '%s\n' % (line)
+    for index, line in enumerate(lines):
+        line = line.rstrip('\n')
+        if not line or line.startswith('#'):
+            continue
+        if '|' in line:
+            line = line.split('|')[0]
+            lines[index] = f'{line}\n'
 
 def update():
-  for index, line in enumerate(lines):
-    # Remove '\n' character
-    line = line[:-1]
+    global needSHA1
+    for index, line in enumerate(lines):
+        line = line.rstrip('\n')
+        if not line:
+            continue
+        if line.startswith('#'):
+            needSHA1 = ' - from' in line
+            continue
+        if needSHA1:
+            line = line.split('|')[0]
+            filePath = line.split(':')[1] if ':' in line else line
+            filePath = filePath.split(';')[0]  # Remove any extra parameters like SYMLINK
 
-    # Skip empty lines
-    if len(line) == 0:
-      continue
+            if filePath.startswith('-'):
+                filePath = filePath[1:]
 
-    # Check if we need to set SHA1 hash for the next files
-    if line[0] == '#':
-      needSHA1 = (' - from' in line)
-      continue
+            fullPath = os.path.join(vendorPath, filePath)
 
-    if needSHA1:
-      # Remove existing SHA1 hash
-      line = line.split('|')[0]
-      filePath = line.split(':')[1] if len(line.split(':')) == 2 else line
+            if not os.path.exists(fullPath):
+                print(f"File not found: {fullPath}")
+                continue
 
-      if filePath[0] == '-':
-        file = open('%s/%s' % (vendorPath, filePath[1:]), 'rb').read()
-      else:
-        file = open('%s/%s' % (vendorPath, filePath), 'rb').read()
-
-      hash = sha1(file).hexdigest()
-      lines[index] = '%s|%s\n' % (line, hash)
+            try:
+                with open(fullPath, 'rb') as f:
+                    file = f.read()
+                hash = sha1(file).hexdigest()
+                lines[index] = f'{line}|{hash}\n'
+            except Exception as e:
+                print(f"Error reading file {fullPath}: {e}")
 
 if len(sys.argv) == 2 and sys.argv[1] == '-c':
-  cleanup()
+    cleanup()
 else:
-  update()
+    update()
 
 with open('proprietary-files.txt', 'w') as file:
-  for line in lines:
-    file.write(line)
-
-  file.close()
+    file.writelines(lines)
