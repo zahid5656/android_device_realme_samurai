@@ -292,9 +292,9 @@ void UdfpsSensor::run() {
                 return ((mIsEnabled && mMode == OperationMode::NORMAL) || mStopThread);
             });
         } else {
+            // Cannot hold lock while polling.
             runLock.unlock();
-            int timeoutMs = 100;
-            int rc = poll(mPolls, 2, timeoutMs);
+            int rc = poll(mPolls, 2, -1);
             runLock.lock();
 
             if (rc < 0) {
@@ -303,12 +303,10 @@ void UdfpsSensor::run() {
                 continue;
             }
 
-            if (mPolls[1].revents & POLLPRI) {
-                if (readFpState(mPollFd, mScreenX, mScreenY)) {
-                    mIsEnabled = false;
-                    mCallback->postEvents(readEvents(), isWakeUpSensor());
-                }
-            } else if (mPolls[0].revents & POLLIN) {
+            if (mPolls[1].revents == mPolls[1].events && readFpState(mPollFd, mScreenX, mScreenY)) {
+                mIsEnabled = false;
+                mCallback->postEvents(readEvents(), isWakeUpSensor());
+            } else if (mPolls[0].revents == mPolls[0].events) {
                 char buf;
                 read(mWaitPipeFd[0], &buf, sizeof(buf));
             }
